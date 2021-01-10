@@ -13,10 +13,31 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
+    <h2>Фильтр характеристик автомобилей:</h2>
+    <div id="filter">
+    <input type="checkbox" id="russianCars" value="isRussian" v-model="checkedCountries">
+    <label for="russianCars">СССР/Россия</label>
+    <input type="checkbox" id="britishCars" value="isBritish" v-model="checkedCountries">
+    <label for="britishCars">Великобритания/Соединённое Королевство</label>
+    <input type="checkbox" id="americanCars" value="isAmerican" v-model="checkedCountries">
+    <label for="americanCars">США</label>
+    <br>
+    <span>Отмеченные страны: {{ checkedCountries }}</span>
+    </div>
     <h3>Cars that are serviced and sold:</h3>
     <div class="lead">
         <strong>Cars:</strong>
         <span th:text="${firstcar}"></span>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script type="text/babel">
+    new Vue({
+    el: '#filter',
+    data: {
+    checkedCountries: []
+    }
+    })
+    </script>
 </body>
 </html>
