@@ -16,6 +16,7 @@
 <body>
     <h2>Фильтр характеристик автомобилей:</h2>
     <div id="filter">
+        <div id="countriesfilter">
         <b>Страна производства:</b>
         <br>
         <input type="checkbox" id="russianCars" value="isRussian" v-model="checkedCountries">
@@ -28,13 +29,16 @@
             <label for="americanCars">США</label>
         <br>
         <span>Отмеченные страны: {{ checkedCountries }}</span>
+        </div>
+        <div id="pricefilter">
         <br>
         <b>Стоимость:</b>
         <br>
         <input v-model="priceMin" placeholder="от">
-        <p>{{ priceMin }}</p>
+        <p>Минимальная цена: {{ priceMin }}</p>
         <input v-model="priceMax" placeholder="до">
-        <p>{{ priceMax }}</p>
+        <p>Максимальная цена: {{ priceMax }}</p>
+        </div>
     </div>
 
 
@@ -42,11 +46,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
     <script type="text/babel">
         new Vue({
-            el: '#filter',
+            el: '#countriesfilter',
             data: {
-                checkedCountries: [],
-                priceMin,
-                priceMax
+                checkedCountries: []
+            }
+        })
+        new Vue({
+            el: '#pricefilter',
+            data: {
+                priceMin
+                //priceMax
             }
         })
     </script>
