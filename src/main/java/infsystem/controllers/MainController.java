@@ -25,4 +25,14 @@ public class MainController {
         // this just means render index.html from static/ area
         return "abstrcars";
     }
+
+
+
+    @RequestMapping(value = "/forsalecars", method = RequestMethod.GET)
+    public String forsalecars(Model model) {
+        // this attribute will be available in the view index.html as a thymeleaf variable
+        //model.addAttribute("firstcar", "ZIL-41041");
+        // this just means render index.html from static/ area
+        return "forsalecars";
+    }
 }

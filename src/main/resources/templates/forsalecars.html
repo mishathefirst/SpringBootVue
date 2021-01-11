@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>For sale vehicles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+    <h2>Фильтр характеристик автомобилей:</h2>
+    <div id="filter">
+        <b>Страна производства:</b>
+        <br>
+        <input type="checkbox" id="russianCars" value="isRussian" v-model="checkedCountries">
+            <label for="russianCars">СССР/Россия</label>
+        <br>
+        <input type="checkbox" id="britishCars" value="isBritish" v-model="checkedCountries">
+            <label for="britishCars">Великобритания/Соединённое Королевство</label>
+        <br>
+        <input type="checkbox" id="americanCars" value="isAmerican" v-model="checkedCountries">
+            <label for="americanCars">США</label>
+        <br>
+        <span>Отмеченные страны: {{ checkedCountries }}</span>
+        <br>
+        <b>Стоимость:</b>
+        <br>
+        <input v-model="priceMin" placeholder="от">
+        <p>{{ priceMin }}</p>
+        <input v-model="priceMax" placeholder="до">
+        <p>{{ priceMax }}</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script type="text/babel">
+        new Vue({
+            el: '#filter',
+            data: {
+                checkedCountries: [],
+                priceMin,
+                priceMax
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>
